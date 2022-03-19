@@ -33,7 +33,43 @@
         @blur="$v.endereco.$touch()"
       ></v-text-field>      
       
-      <v-btn class="mr-4" color="red lighten-1" @click="submit" > Cadastrar </v-btn>
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="290"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="#E53935"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          class="mr-4"
+        >
+          Cadastrar
+        </v-btn>
+      </template>
+      <v-card>
+        <v-card-title class="text-h5 text-center">
+          Cadastro concluido <br> com sucesso!
+        </v-card-title>        
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <router-link to="/listaovos">
+            <v-btn
+            class="botaoModal"
+            dark
+            text
+            @click="dialog = false"
+            >
+            Ok
+            </v-btn>  
+          </router-link>        
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+      
       <v-btn @click="reset"> Limpar </v-btn>
     </form>
   </v-container>
@@ -43,6 +79,7 @@
 export default {
     data() {
         return {
+        dialog: false,
         valid: true,
         name: '',
         nameRules: [
@@ -73,5 +110,9 @@ export default {
 <style scoped>
     .title {
         color: #E53935!important;
+    }
+
+    .botaoModal {
+        background-color: #E53935!important;;
     }
 </style>
