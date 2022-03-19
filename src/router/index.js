@@ -3,15 +3,15 @@ import
 
 Vue.use(VueRouter)
 
-const routes = [
+const routes = 
+{
+  path: '/MeuInicio',
+  name: 'Inicio',
+  component: MeuInicio
+}
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
+    path: '/SobreNós',
+    name: 'Sobre Nós',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -22,16 +22,7 @@ const routes = [
     name: 'Cadastro',
     component: CadastroProduto
   }
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  }
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  }
+ 
 ]
 
 const router = new VueRouter({
