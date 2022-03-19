@@ -28,6 +28,7 @@ const routes =
     path: '/listaovos',
     name: 'ListaOvos',
     component: ListaOvos
+  }
  
 ]
 
