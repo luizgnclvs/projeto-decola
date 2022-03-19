@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <v-container fluid>
         <div class="header">
         <h2 class="text-h5 text-left mb-3 mt-5">Ovos Caseiros</h2>
         <v-dialog
@@ -10,7 +10,7 @@
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn
                     icon
-                    color="red lighten-2"
+                    color="brown darken-1"
                     dark
                     v-bind="attrs"
                     v-on="on"
@@ -23,45 +23,45 @@
                     Filtrar itens por:
                     </v-card-title>
                         <v-card-text>
-                            <v-container>
+                            <v-container class="px-0" fluid>
                                 <v-row>
-                                    <v-col>
-                                    <v-checkbox
-                                    v-model="ex4"
-                                    label="Nome"
-                                    color="red"
-                                    value="red"
-                                    hide-details
-                                    ></v-checkbox>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col>
-                                    <v-checkbox
-                                    v-model="ex4"
-                                    label="Preço"
-                                    color="red"
-                                    value="red"
-                                    hide-details
-                                    ></v-checkbox>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col>
-                                    <v-checkbox
-                                    v-model="ex4"
-                                    label="Estabelecimento"
-                                    color="red"
-                                    value="red"
-                                    hide-details
-                                    ></v-checkbox>
-                                    </v-col>
+                                <v-col
+                                    cols="12"
+                                    sm="6"
+                                    md="6"
+                                >
+                                    <v-radio-group
+                                    v-model="ex7"
+                                    column
+                                    >
+                                    <v-radio
+                                        label="Nome"
+                                        color="brown darken-1"
+                                        value="red"
+                                        @click="dialog = false"
+                                        @select="filtroNome()"
+                                    ></v-radio>
+                                    <v-radio
+                                        label="Preço"
+                                        color="brown darken-1"
+                                        value="red darken-3"
+                                        @click="dialog = false"
+                                        @select="filtroPreco()"
+                                    ></v-radio>
+                                    <v-radio
+                                        label="Estabelecimento"
+                                        color="brown darken-1"
+                                        value="indigo"
+                                        @click="dialog = false"
+                                    ></v-radio>                                    
+                                    </v-radio-group>
+                                </v-col>                                
                                 </v-row>
                             </v-container>
                         </v-card-text>   
                     </v-card>
                 </v-dialog>
-        </div>
+        </div>       
         <TabelaOvos :ovos="listaOvos"/>
     </v-container>
 </template>
@@ -78,19 +78,7 @@
         data () {
             return {
                 listaOvos: [],
-                filtros: [{"id" : 1,
-                    "on" : false,
-                    "icon" : "mdi-checkbox-blank-outline",
-                    "icon-off" : "mdi-checkbox-marked-outline"
-                    }, {"id" : 2,
-                    "on" : false,
-                    "icon" : "mdi-checkbox-blank-outline",
-                    "icon-off" : "mdi-checkbox-marked-outline"
-                    }, {"id" : 3,
-                    "on" : false,
-                    "icon" : "mdi-checkbox-blank-outline",
-                    "icon-off" : "mdi-checkbox-marked-outline"
-                    }],                
+                dialog: false,                
             }
         },
         created () {
@@ -100,10 +88,19 @@
                     this.listaOvos = json;
                 })
         },
-        methods: {
-            SelectFiltro () {
-                
+        computed: {            
+            filtroNome () {
+                const listaNome = this.listaOvos.slice(0).sort(
+                    (a, b) => a.nome > b.nome ? -1 : 1
+                );
+                return listaNome;
             },
+            filtroPreco() {
+                const listaPreco = this.listaOvos.slice(0).sort(
+                    (a, b) => a.preco > b.preco ? -1 : 1
+                );
+                return listaPreco;
+            }
         }
     }
 </script>
