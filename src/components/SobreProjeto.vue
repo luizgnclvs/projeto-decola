@@ -1,28 +1,27 @@
-<template>
-     
-    <v-container class= 'cor'>
-            <h2 class="text-uppercase mb-4 mt-6 font-weight-bold">Sobre o Projeto</h2>
-            <p class="text-justify mb-4 mt-6">O projeto "Páscoa Inclusiva" foi desenvolvido durante o hackaton do Projeto Decola, no processo de seleção de estágio para a empresa
-                <a href="www.iteris.com.br">Iteris</a>.</p>
+<template>     
+    <v-container class= 'cor'>        
+        <h2 class="text-uppercase mb-4 mt-6 font-weight-bold">Sobre o Projeto</h2>
+        <p class="text-justify mb-4 mt-6">O projeto "Páscoa Inclusiva" foi desenvolvido durante o hackaton do Projeto Decola, no processo de seleção de estágio para a empresa
+            <a href="www.iteris.com.br">Iteris</a>.</p>
 
-                <div class="titulo">
-                    <p class="text-justify mb-4 mt-6">Desenvolvedores envolvidos no projeto</p> 
-                </div>
-                <div class="texto"> 
-                    <tbody>           
-                        <tr v-for="desenvolvedor of desenvolvedores" :key="desenvolvedor.id" >
-                            <td>
-                                <v-avatar size=62 mb-50 mt-5>
-                                    <img
-                                        :src="desenvolvedor.avatar" 
-                                        :alt="desenvolvedor.nome"
-                                    >
-                                </v-avatar>
-                            </td>
-                            <td class="link"><a :href="desenvolvedor.link"> {{desenvolvedor.nome}}</a></td>     
-                        </tr>
-                    </tbody> 
+        <div class="titulo">
+            <p class="text-justify mb-4 mt-6">Desenvolvedores envolvidos no projeto</p> 
         </div>
+        <div class="texto"> 
+            <tbody>           
+                <tr v-for="desenvolvedor of desenvolvedores" :key="desenvolvedor.id" >
+                    <td>
+                        <v-avatar size=62 mb-50 mt-5>
+                            <img
+                                :src="desenvolvedor.avatar" 
+                                :alt="desenvolvedor.nome"
+                            >
+                        </v-avatar>
+                    </td>
+                    <td class="link"><a :href="desenvolvedor.link"> {{desenvolvedor.nome}}</a></td>     
+                </tr>
+            </tbody> 
+        </div>        
     </v-container>
 
 </template>
