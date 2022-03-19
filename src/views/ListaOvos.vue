@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <h2 class="text-h5 text-center mb-3 mt-5">Ovos Caseiros</h2>
-        <TabelaOvos :ovos="listaOvos"/>
+        <TabelaOvos :ovos="listaOvos"/>git
     </v-container>
 </template>
 
