@@ -40,7 +40,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="#E53935"
+          color="#6D4C41"
           dark
           v-bind="attrs"
           v-on="on"
@@ -55,7 +55,7 @@
         </v-card-title>        
         <v-card-actions>
           <v-spacer></v-spacer>
-          <router-link to="/listaovos">
+          <router-link to="/cadastroprodutos">
             <v-btn
             class="botaoModal"
             dark
@@ -107,9 +107,29 @@ export default {
 }
 </script>
 
-<style scoped>   
+<style scoped>  
+    .parallax {
+  background-image: url("../assets/pascoa.jpg");
+
+  height: 100%;
+  padding: 0px !important;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.fundo {
+  width: 100%;
+  background-color: white;
+  padding: 10px 10px 20px 10px;
+}
 
     .botaoModal {
-        background-color: #E53935!important;;
+        background-color: #6D4C41!important;;
     }
 </style>
