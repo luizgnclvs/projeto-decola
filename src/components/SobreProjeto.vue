@@ -87,6 +87,6 @@ export default {
         align-content: center;
     }
     .cor {
-    background-image: linear-gradient(180deg, #6D4C41, #A1887F, #EFEBE9);
+    background-image: linear-gradient(180deg, #6D4C41, #A1887F, #ffffff);
     }
 </style>
