@@ -1,59 +1,66 @@
 <template>
-  <v-container>
-    <v-card-title primary-title> Cadastro Produtos </v-card-title>
-    <form>
-      <v-text-field
-        v-model="nome"
-        :counter="100"
-        label="Nome"
-        required
-      ></v-text-field>
-      <v-text-field
-        v-model="preco"
-        label="Preco"
-        prefix="R$"
-        required
-      ></v-text-field>
-      <v-text-field
-        v-model="sabor"
-        :counter="100"
-        label="Sabor"
-        required
-      ></v-text-field>
-      <v-file-input accept="image/*" label="Imagem"></v-file-input>
+  <v-container class="parallax">
+    <div class="fundo">
+      <v-card-title primary-title> Cadastro Produtos </v-card-title>
+      <form>
+        <v-text-field
+          v-model="produto"
+          :counter="100"
+          label="Produto"
+          required
+        ></v-text-field>
+        <v-text-field
+          v-model="preco"
+          label="Preco entre R$ 0,00 e R$ 30,00"
+          prefix="R$"
+          required
+        ></v-text-field>
+        <v-text-field
+          v-model="sabor"
+          :counter="100"
+          label="Sabor"
+          required
+        ></v-text-field>
+        <v-file-input accept="image/*" label="Imagem" v-model="file"
+          >imagem</v-file-input
+        >
 
-      <v-btn class="mr-4" @click="submit"> submit </v-btn>
-      <v-btn @click="clear"> clear </v-btn>
-      <v-dialog v-model="dialog" max-width="290">
-        <v-card>
-          <v-card-title class="text-h5"> Cadastro de Produto </v-card-title>
+        <v-btn class="mr-4" @click="submit"> Cadastrar </v-btn>
+        <v-btn @click="clear"> Limpar </v-btn>
+        <v-dialog v-model="dialog" max-width="290">
+          <v-card>
+            <v-card-title class="text-h5"> Cadastro de Produto </v-card-title>
 
-          <v-card-text>
-            Desculpe! Algum campo não foi presenchido corretamente!
-          </v-card-text>
+            <v-card-text>
+              Desculpe! Algum campo não foi presenchido corretamente ou o preço
+              está maior do que o permitido!
+            </v-card-text>
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="green darken-1" text @click="dialog = false">
-              OK
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-      <v-dialog v-model="dialogSucess" hide-overlay persistent width="300">
-        <v-card color="primary" dark>
-          <v-card-text>
-            Cadastrando Produto
-            <v-progress-linear
-              indeterminate
-              color="white"
-              class="mb-0"
-            ></v-progress-linear>
-          </v-card-text>
-        </v-card>
-      </v-dialog>
-      <v-alert v-if="sucesso" color="green" dismissible type="success">Produto cadastrado com Sucesso!</v-alert>
-    </form>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="dialog = false">
+                OK
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <v-dialog v-model="dialogSucess" hide-overlay persistent width="300">
+          <v-card color="primary" dark>
+            <v-card-text>
+              Cadastrando Produto
+              <v-progress-linear
+                indeterminate
+                color="white"
+                class="mb-0"
+              ></v-progress-linear>
+            </v-card-text>
+          </v-card>
+        </v-dialog>
+        <v-alert v-if="sucesso" color="green" dismissible type="success"
+          >Produto cadastrado com Sucesso!</v-alert
+        >
+      </form>
+    </div>
   </v-container>
 </template>
 
@@ -61,12 +68,13 @@
 export default {
   name: "CadastroProdutos",
   data: () => ({
-    nome: "",
+    produto: "",
     preco: 0,
     sabor: "",
+    file: null,
     dialog: false,
     dialogSucess: false,
-    sucesso: false
+    sucesso: false,
   }),
   watch: {
     dialogSucess(val) {
@@ -74,7 +82,6 @@ export default {
 
       setTimeout(() => (this.dialogSucess = false), 4000);
       setTimeout(() => (this.sucesso = true), 4000);
-      
     },
   },
   methods: {
@@ -82,27 +89,31 @@ export default {
       const storageinfos = [];
       const erros = [];
 
-      if (this.nome != "") {
-        storageinfos.push(this.nome);
+      if (this.produto != "") {
+        storageinfos.push(this.produto);
       } else {
-        erros.push("Produto must be at most 10 characters long");
-        erros.push("Produto is required.");
+        erros.push("Erro campo produto");
         console.log(erros);
       }
 
-      if (this.preco != "") {
+      if (this.preco != 0 && this.preco <= 30) {
         storageinfos.push(this.preco);
       } else {
-        erros.push("Preco must be at most 10 characters long");
-        erros.push("Preco is required.");
+        erros.push("Erro campo preco");
         console.log(erros);
       }
 
       if (this.sabor != "") {
         storageinfos.push(this.sabor);
       } else {
-        erros.push("Sabor must be at most 10 characters long");
-        erros.push("Sabor is required.");
+        erros.push("Erro campo sabor");
+        console.log(erros);
+      }
+
+      if (this.file != null) {
+        storageinfos.push(this.file);
+      } else {
+        erros.push("Erro campo file");
         console.log(erros);
       }
 
@@ -116,9 +127,33 @@ export default {
     },
     clear() {
       this.nome = "";
-      this.preco = "";
+      this.preco = 0;
       this.sabor = "";
+      this.file = null;
     },
   },
 };
 </script>
+
+<style scoped>
+.parallax {
+  background-image: url("../assets/pascoa.jpg");
+
+  height: 100%;
+  padding: 0px !important;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.fundo {
+  width: 100%;
+  background-color: white;
+  padding: 10px 10px 20px 10px;
+}
+</style>
