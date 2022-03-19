@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import MeuInicio from "../views/MeuInicio";
-import SobreNos from "../components/SobreNos"
+import SobreProjeto from "../components/SobreProjeto"
 import CadastroProdutos from "../components/CadastroProdutos"
 import CadastroVendedores from "../components/CadastroVendedores"
 import ListaOvos from "../views/ListaOvos"
@@ -15,9 +15,9 @@ const routes = [
     component: MeuInicio,
   },
   {
-    path: "/sobrenos",
-    name: "SobreNos",
-    component: SobreNos,
+    path: "/sobreprpjeto",
+    name: "SobreProjeto",
+    component: SobreProjeto,
   },
   {
     path: "/cadastroprodutos",

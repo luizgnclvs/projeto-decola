@@ -15,7 +15,7 @@
               <v-list-item-title>Home</v-list-item-title>
             </v-list-item>
           </router-link>
-          <router-link to="/sobrenos">
+          <router-link to="/sobreprojeto">
             <v-list-item>
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
