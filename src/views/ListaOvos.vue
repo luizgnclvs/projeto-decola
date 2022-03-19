@@ -9,6 +9,7 @@
                 >
                 <template v-slot:activator="{ on, attrs }">
                     <v-btn
+                    icon
                     color="red lighten-2"
                     dark
                     v-bind="attrs"
@@ -22,43 +23,42 @@
                     Filtrar itens por:
                     </v-card-title>
                         <v-card-text>
-                            <v-container
-                                fluid
-                                class="pa-0"
-                            >   
+                            <v-container>
                                 <v-row>
-                                    <v-col
-                                    cols="12"
-                                    sm="3"
-                                    >
-                                    <v-btn
-                                    icon
-                                    color="red lighten-2"
-                                    >
-                                    <v-icon>mdi-checkbox-blank-outline</v-icon>
-                                    </v-btn>                                        
-                                </v-col>
+                                    <v-col>
+                                    <v-checkbox
+                                    v-model="ex4"
+                                    label="Nome"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    ></v-checkbox>
+                                    </v-col>
+                                </v-row>
+                                <v-row>
+                                    <v-col>
+                                    <v-checkbox
+                                    v-model="ex4"
+                                    label="Preço"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    ></v-checkbox>
+                                    </v-col>
+                                </v-row>
+                                <v-row>
+                                    <v-col>
+                                    <v-checkbox
+                                    v-model="ex4"
+                                    label="Estabelecimento"
+                                    color="red"
+                                    value="red"
+                                    hide-details
+                                    ></v-checkbox>
+                                    </v-col>
                                 </v-row>
                             </v-container>
-                        </v-card-text>
-
-                    <v-card-actions class="alinhamento">
-                        <v-btn 
-                            icon
-                            color="red lighten-2"                                          
-                            @click="dialog = false"
-                        >
-                            <v-icon dark>mdi-check-box-outline-blank</v-icon>
-                        </v-btn>
-                        
-                        <v-btn
-                            color="green darken-1"
-                            text
-                            @click="dialog = false"
-                        >
-                            Agree
-                        </v-btn>                            
-                    </v-card-actions>
+                        </v-card-text>   
                     </v-card>
                 </v-dialog>
         </div>
@@ -77,7 +77,20 @@
         },
         data () {
             return {
-                listaOvos: []
+                listaOvos: [],
+                filtros: [{"id" : 1,
+                    "on" : false,
+                    "icon" : "mdi-checkbox-blank-outline",
+                    "icon-off" : "mdi-checkbox-marked-outline"
+                    }, {"id" : 2,
+                    "on" : false,
+                    "icon" : "mdi-checkbox-blank-outline",
+                    "icon-off" : "mdi-checkbox-marked-outline"
+                    }, {"id" : 3,
+                    "on" : false,
+                    "icon" : "mdi-checkbox-blank-outline",
+                    "icon-off" : "mdi-checkbox-marked-outline"
+                    }],                
             }
         },
         created () {
@@ -87,6 +100,11 @@
                     this.listaOvos = json;
                 })
         },
+        methods: {
+            SelectFiltro () {
+                
+            },
+        }
     }
 </script>
 
