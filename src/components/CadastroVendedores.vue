@@ -5,45 +5,35 @@
       </v-card-title>
     <form ref=form>
       <v-text-field
-        v-model="Nome"
-        :error-messages="nameErrors"
+        v-model="nome"
+        :rules="nameRules"
         :counter="10"
         label="Nome da empresa"
         required
-        @input="$v.name.$touch()"
-        @blur="$v.name.$touch()"
+        @input="$v.nome.$touch()"
+        @blur="$v.nome.$touch()"
       ></v-text-field>
       
       <v-text-field
-        v-model="Cep"
-        :error-messages="emailErrors"
+        v-model="cep"
+        :rules="CepRules"
         label="CEP"
         required
-        @input="$v.email.$touch()"
-        @blur="$v.email.$touch()"
+        @input="$v.cep.$touch()"
+        @blur="$v.cep.$touch()"
       ></v-text-field>
       
       <v-text-field
-        v-model="Endereco"
-        :error-messages="nameErrors"
+        v-model="endereco"
+        :rules="EnderecoRules"
         :counter="10"
         label="Endereço"
         required
-        @input="$v.name.$touch()"
-        @blur="$v.name.$touch()"
-      ></v-text-field>
-      
-      <v-text-field
-        v-model="Foto"
-        :error-messages="nameErrors"
-        :counter="10"
-        label="Foto do Avatar (insira uma url)"
-        required
-        @input="$v.name.$touch()"
-        @blur="$v.name.$touch()"
+        @input="$v.endereco.$touch()"
+        @blur="$v.endereco.$touch()"
       ></v-text-field>      
-
-      <v-btn class="mr-4" color="red darken-1" @click="submit"> Cadastrar </v-btn>
+      
+      <v-btn class="mr-4" color="red lighten-1" @click="submit" > Cadastrar </v-btn>
       <v-btn @click="reset"> Limpar </v-btn>
     </form>
   </v-container>
@@ -53,17 +43,28 @@
 export default {
     data() {
         return {
-           items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
-      ], 
+        valid: true,
+        name: '',
+        nameRules: [
+            v => !!v || 'Name é obrigatório'
+        ],
+        CepRules: [
+            v => !!v || 'CEP é obrigatório'
+        ],
+        EnderecoRules: [
+            v => !!v || 'Endereço é obrigatório'
+        ],
+        items: [
+            'Item 1',
+            'Item 2',
+            'Item 3',
+            'Item 4',
+        ], 
         }
     },
     methods: {
         reset () {
-        this.$refs.form.reset()
+            this.$refs.form.reset()
       },
     }
 }
