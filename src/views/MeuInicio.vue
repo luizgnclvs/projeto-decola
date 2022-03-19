@@ -9,7 +9,10 @@
         Conectando Pessoas!
         </p>
         <p class="text-justify mb-4 mt-6">
-            Aqui você encontra variadas opções de ovos de páscoa e lojistas tornando o consumo de ovos de páscoa mais democrático e feliz! 
+            Você que está buscando ovos de páscoa com preços mais acessíveis e de quebra valoriza os pequenos produtores e emprésários, nós resolvemos isso pra você!
+        </p>
+        <p class="text-justify mb-4 mt-6">
+           Aqui você encontra variadas opções de ovos de páscoa de pequenos lojistas e produtores artesanais com preços que cabem no seu bolso. Navegue pela nossa página e escolha o seu ovo!
         </p>
 </v-container>
     
