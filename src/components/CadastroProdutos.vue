@@ -1,5 +1,5 @@
 <template>
-  <v-container class="parallax">
+  <v-container class="container-form">
     <div class="fundo">
       <v-card-title primary-title> Cadastro Produtos </v-card-title>
       <form>
@@ -25,8 +25,8 @@
           >imagem</v-file-input
         >
 
-        <v-btn class="mr-4" @click="submit"> Cadastrar </v-btn>
-        <v-btn @click="clear"> Limpar </v-btn>
+        <v-btn class="mr-4" color="#6D4C41" dark @click="submit"> Cadastrar </v-btn>
+        <v-btn @click="clear">Limpar</v-btn>
         <v-dialog v-model="dialog" max-width="290">
           <v-card>
             <v-card-title class="text-h5"> Cadastro de Produto </v-card-title>
@@ -119,14 +119,14 @@ export default {
 
       if (erros.length === 0) {
         this.dialogSucess = true;
-        console.log(this.dialog);
+        console.log(storageinfos)
       } else {
         this.dialog = true;
       }
       this.clear();
     },
     clear() {
-      this.nome = "";
+      this.produto = "";
       this.preco = 0;
       this.sabor = "";
       this.file = null;
@@ -136,16 +136,9 @@ export default {
 </script>
 
 <style scoped>
-.parallax {
-  background-image: url("../assets/pascoa.jpg");
-
+.container-form {
   height: 100%;
   padding: 0px !important;
-
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -153,7 +146,6 @@ export default {
 }
 .fundo {
   width: 100%;
-  background-color: white;
   padding: 10px 10px 20px 10px;
 }
 </style>
