@@ -107,10 +107,7 @@ export default {
 }
 </script>
 
-<style scoped>
-    .title {
-        color: #E53935!important;
-    }
+<style scoped>   
 
     .botaoModal {
         background-color: #E53935!important;;

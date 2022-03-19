@@ -3,6 +3,20 @@
     <v-app-bar app elevation="4" color="brown darken-1" class="title-camp cor">
       <v-app-bar-nav-icon color="white" @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title class="cor"> Pascoa Inclusiva </v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        v-on="on"
+        v-bind="attrs"
+        color="transparent"
+        small
+        fab
+        @click="darkMode"
+      >
+        <v-icon v-if="!$vuetify.theme.dark" class="mr-1"
+          >mdi-moon-waxing-crescent</v-icon
+        >
+        <v-icon v-else>mdi-white-balance-sunny</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
@@ -61,6 +75,11 @@ export default {
     drawer: false,
     group: null,
   }),
+  methods: {
+    darkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
+  },
 };
 </script>
 
@@ -71,6 +90,7 @@ export default {
   justify-content: center;
   align-content: center;
 }
+
 .app-top-bar a {
   text-decoration: none;
   color: black;
