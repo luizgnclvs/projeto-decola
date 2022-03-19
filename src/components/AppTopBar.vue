@@ -1,12 +1,12 @@
 <template>
   <div class="app-top-bar">
-    <v-app-bar app elevation="4" color="green lighten-1" class="title-camp">
+    <v-app-bar app elevation="4" color="red darken-1" class="title-camp">
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title> Pascoa </v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
-        <v-list-item-group v-model="group" active-class="green lighten-1">
+        <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
           <router-link to="/">
             <v-list-item>
               <v-list-item-icon>
@@ -72,5 +72,8 @@ export default {
 }
 .app-top-bar a {
   text-decoration: none;
+}
+.v-list-item-group .v-list-item--active {
+    color: red!important;
 }
 </style>
