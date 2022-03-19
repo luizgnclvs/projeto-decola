@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <v-container>
       <v-card-title primary-title>
@@ -54,9 +53,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>
-=======
->>>>>>> 731365038a98e6678a0fd558e552baddadd167f2
