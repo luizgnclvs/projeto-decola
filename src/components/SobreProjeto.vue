@@ -1,34 +1,34 @@
 <template>
-<div>
-    <v-container class="pa-6">
+     
+    <v-container class= 'cor'>
+        
         <h2 class="text-h5 text-center mb-3 mt-5">Sobre o Projeto</h2>
-         <v-img class="inicio-imagem mb-4" src="https://i.ytimg.com/vi/5QIsyuVqbNQ/mqdefault.jpg">
-        </v-img>
+       
+  
         <p>O projeto "Páscoa Inclusiva" foi desenvolvido durante o hackaton do Projeto Decola, no processo de seleção de estágio para a empresa
             <a href="www.iteris.com.br">Iteris</a>.</p>
         
         <p>Desenvolvedores envolvidos no projeto</p>
+                    
+                    <tbody>
+                        
+                    <tr v-for="desenvolvedor of desenvolvedores" :key="desenvolvedor.id" >
+                        <td>
+                            <v-avatar size=62 mb-50 mt-5>
+                                <img
+                                    :src="desenvolvedor.avatar" 
+                                    :alt="desenvolvedor.nome"
+                                >
+                            </v-avatar>
+                        </td>
+                    
+                        <td ><a :href="desenvolvedor.link"> {{desenvolvedor.nome}}</a></td>
+                     
+                    </tr>
 
-        <v-simple-table>
-            <template>
-                <tbody>
-                <tr v-for="desenvolvedor of desenvolvedores" :key="desenvolvedor.id" >
-                    <td>
-                        <v-avatar size=62 mb-50 mt-5>
-                            <img
-                                :src="desenvolvedor.avatar" 
-                                :alt="desenvolvedor.nome"
-                            >
-                        </v-avatar>
-                    </td>
-                    <td><a :href="desenvolvedor.link"> {{desenvolvedor.nome}}</a></td>
-                </tr>
-                </tbody>
-            </template>
-        </v-simple-table>
-
+                    </tbody> 
     </v-container>
-</div>
+
 </template>
 
 <script>
@@ -47,7 +47,7 @@ export default {
                     "id": 4,
                     "link": "https://github.com/JessicaTroiano/",
                     "nome": "Jessica Troiano",
-                    "avatar": "https://github.com/luizfelipetorres.png"
+                    "avatar": "https://github.com/JessicaTroiano.png"
                 },
                 {
                     "id": 1,
@@ -76,7 +76,9 @@ export default {
 </script>
 
 <style scoped>
-    .inicio-imagem {
-        border-radius: 5px;
-    }
+    
+    .cor {
+  
+  background-image: linear-gradient(180deg, #E53935, #EF5350, #FFEBEE);
+}
 </style>

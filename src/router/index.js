@@ -15,7 +15,7 @@ const routes = [
     component: MeuInicio,
   },
   {
-    path: "/sobreprpjeto",
+    path: "/sobreprojeto",
     name: "SobreProjeto",
     component: SobreProjeto,
   },
