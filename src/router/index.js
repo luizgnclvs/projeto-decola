@@ -5,32 +5,32 @@ import CadastroVendedores from './components/CadastroVendedores'
 import ListaOvos from './components/ListaOvos'
 Vue.use(VueRouter)
 
-const routes = 
+const routes = [
 {
-  path: '/inicio',
+  path: '/',
   name: 'MeuInicio',
   component: MeuInicio
-}
+},
   {
     path: '/sobrenos',
     name: 'SobreNos',
-    component: SobreNos
-  }
+    component: SobreNos,
+  },
   {
     path: '/CadastroProdutos',
     name: 'Cadastro',
-    component: CadastroProdutos
-  }
+    component: CadastroProdutos,
+  },
   {
     path: '/cadastrovendedores',
     name: 'CadastroVendedores',
-    component: cadastrovendedores
-  }
+    component: CadastroVendedores
+  },
   {
     path: '/listaovos',
     name: 'ListaOvos',
     component: ListaOvos
-  }
+  },
  
 ]
 
