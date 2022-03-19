@@ -1,32 +1,28 @@
 <template>
      
     <v-container class= 'cor'>
-        
-        <h2 class="text-h5 text-center mb-3 mt-5">Sobre o Projeto</h2>
-       
-  
-        <p>O projeto "Páscoa Inclusiva" foi desenvolvido durante o hackaton do Projeto Decola, no processo de seleção de estágio para a empresa
-            <a href="www.iteris.com.br">Iteris</a>.</p>
-        
-        <p>Desenvolvedores envolvidos no projeto</p>
-                    
-                    <tbody>
-                        
-                    <tr v-for="desenvolvedor of desenvolvedores" :key="desenvolvedor.id" >
-                        <td>
-                            <v-avatar size=62 mb-50 mt-5>
-                                <img
-                                    :src="desenvolvedor.avatar" 
-                                    :alt="desenvolvedor.nome"
-                                >
-                            </v-avatar>
-                        </td>
-                    
-                        <td ><a :href="desenvolvedor.link"> {{desenvolvedor.nome}}</a></td>
-                     
-                    </tr>
+            <h2 class="text-uppercase mb-4 mt-6 font-weight-bold">Sobre o Projeto</h2>
+            <p class="text-justify mb-4 mt-6">O projeto "Páscoa Inclusiva" foi desenvolvido durante o hackaton do Projeto Decola, no processo de seleção de estágio para a empresa
+                <a href="www.iteris.com.br">Iteris</a>.</p>
 
+                <div class="titulo">
+                    <p class="text-justify mb-4 mt-6">Desenvolvedores envolvidos no projeto</p> 
+                </div>
+                <div class="texto"> 
+                    <tbody>           
+                        <tr v-for="desenvolvedor of desenvolvedores" :key="desenvolvedor.id" >
+                            <td>
+                                <v-avatar size=62 mb-50 mt-5>
+                                    <img
+                                        :src="desenvolvedor.avatar" 
+                                        :alt="desenvolvedor.nome"
+                                    >
+                                </v-avatar>
+                            </td>
+                            <td class="link"><a :href="desenvolvedor.link"> {{desenvolvedor.nome}}</a></td>     
+                        </tr>
                     </tbody> 
+        </div>
     </v-container>
 
 </template>
@@ -76,9 +72,23 @@ export default {
 </script>
 
 <style scoped>
+    .texto a {
+        text-decoration: none;
+        color: #000;
+    }
     
+    .titulo {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .texto {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
     .cor {
   
-  background-image: linear-gradient(180deg, #E53935, #EF5350, #FFEBEE);
-}
+    background-image: linear-gradient(180deg, #6D4C41, #A1887F, #EFEBE9);
+    }
 </style>
