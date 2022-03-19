@@ -5,23 +5,29 @@ Vue.use(VueRouter)
 
 const routes = 
 {
-  path: '/MeuInicio',
-  name: 'Inicio',
+  path: '/inicio',
+  name: 'MeuInicio',
   component: MeuInicio
 }
   {
-    path: '/SobreNós',
-    name: 'Sobre Nós',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/sobrenos',
+    name: 'SobreNos',
+    component: SobreNos
   }
   {
     path: '/CadastroProduto',
     name: 'Cadastro',
     component: CadastroProduto
   }
+  {
+    path: '/cadastrovendedores',
+    name: 'CadastroVendedored',
+    component: cadastrovendedores
+  }
+  {
+    path: '/listaovos',
+    name: 'ListaOvos',
+    component: ListaOvos
  
 ]
 
