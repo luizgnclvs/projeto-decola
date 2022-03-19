@@ -1,5 +1,5 @@
 <template>
-  <v-app class="app-top-bar">
+<div class="app-top-bar">
     <v-app-bar app elevation="4" color="red darken-1" class="title-camp cor">
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title> Pascoa Inclusiva </v-toolbar-title>
@@ -50,7 +50,8 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </v-app>
+    </div>
+ 
 </template>
 
 <script>
