@@ -1,39 +1,43 @@
-import Vue from 'vue'
-import 
+import Vue from "vue";
+import VueRouter from "vue-router";
+import MeuInicio from "../views/MeuInicio";
+import SobreNos from "../components/SobreNos"
+import CadastroProdutos from "../components/CadastroProdutos"
+import CadastroVendedores from "../components/CadastroVendedores"
+import ListaOvos from "../views/ListaOvos"
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const routes = 
-{
-  path: '/inicio',
-  name: 'MeuInicio',
-  component: MeuInicio
-}
+const routes = [
   {
-    path: '/sobrenos',
-    name: 'SobreNos',
-    component: SobreNos
-  }
+    path: "/",
+    name: "MeuInicio",
+    component: MeuInicio,
+  },
   {
-    path: '/CadastroProduto',
-    name: 'Cadastro',
-    component: CadastroProduto
-  }
+    path: "/sobrenos",
+    name: "SobreNos",
+    component: SobreNos,
+  },
   {
-    path: '/cadastrovendedores',
-    name: 'CadastroVendedored',
-    component: cadastrovendedores
-  }
+    path: "/cadastroprodutos",
+    name: "Cadastro",
+    component: CadastroProdutos,
+  },
   {
-    path: '/listaovos',
-    name: 'ListaOvos',
-    component: ListaOvos
-  }
- 
-]
+    path: "/cadastrovendedores",
+    name: "CadastroVendedores",
+    component: CadastroVendedores,
+  },
+  {
+    path: "/listaovos",
+    name: "ListaOvos",
+    component: ListaOvos,
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
