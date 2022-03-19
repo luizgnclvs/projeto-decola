@@ -1,6 +1,8 @@
 import Vue from 'vue'
-import 
-
+import MeuInicio from './views/MeuInicio.vue'
+import CadastroProdutos from './components/CadastroProdutos'
+import CadastroVendedores from './components/CadastroVendedores'
+import ListaOvos from './components/ListaOvos'
 Vue.use(VueRouter)
 
 const routes = 
@@ -15,13 +17,13 @@ const routes =
     component: SobreNos
   }
   {
-    path: '/CadastroProduto',
+    path: '/CadastroProdutos',
     name: 'Cadastro',
-    component: CadastroProduto
+    component: CadastroProdutos
   }
   {
     path: '/cadastrovendedores',
-    name: 'CadastroVendedored',
+    name: 'CadastroVendedores',
     component: cadastrovendedores
   }
   {
