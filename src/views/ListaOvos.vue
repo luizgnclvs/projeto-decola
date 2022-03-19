@@ -1,12 +1,18 @@
 <template>
     <v-container>
         <h2 class="text-h5 text-center mb-3 mt-5">Ovos Caseiros</h2>
+        <TabelaOvos :ovos="listaOvos"/>
     </v-container>
 </template>
 
 <script>
+    import TabelaOvos from '../components/TabelaOvos.vue'
+
     export default {
         name: 'ListaOvos',
+        components: {
+            TabelaOvos
+        },
         data () {
             return {
                 listaOvos: []
