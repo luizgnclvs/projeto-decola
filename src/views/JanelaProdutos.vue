@@ -4,8 +4,8 @@
     max-width="344"
   >
     <v-img
-      src=""
-      height="200px"
+      :src="ovo.imagem"
+      :alt="ovo.nome"
     ></v-img>
 
     <v-card-title >
@@ -45,3 +45,20 @@
     </v-expand-transition>
   </v-card>
 </template>
+
+<script>
+  export default {
+    name: 'produtoSelec',
+    props: {
+            ovos: {
+                type: Array,
+                required:true
+            }
+        },
+    data () {
+      return {
+        
+      }
+    }
+  }
+</script>

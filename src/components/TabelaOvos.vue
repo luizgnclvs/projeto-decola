@@ -14,7 +14,7 @@
 
                     <v-list-item-content>
                         <v-list-item-title class="text-left text-capitalize">{{ ovo.nome }}</v-list-item-title>
-                        <v-list-item-subtitle class="text-left">{{ovo.sabor}}</v-list-item-subtitle>
+                        <v-list-item-subtitle class="text-left">{{"R$ "+ ovo.preco + " - " + ovo.sabor}}</v-list-item-subtitle>
                     </v-list-item-content>        
                 </v-list-item>
             </v-list-item-group>
